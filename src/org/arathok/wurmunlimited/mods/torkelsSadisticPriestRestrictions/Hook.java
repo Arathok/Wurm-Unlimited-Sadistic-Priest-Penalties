@@ -37,9 +37,30 @@ public static Field parent;
         p = Players.getInstance().getPlayerOrNull(parent2.getId());
         if (p!=null) {
             TorkelsSadisticPriestRestrictions.logger.log(Level.SEVERE, "Playernotfound!");
-            if (p.isPriest())
+            if (p.isPriest()&&askill.getKnowledge()>1.01D&&
+                    (
+                        askill.getNumber()==1030||
+                        askill.getNumber()==10079||
+                        askill.getNumber()==10080||
+                        askill.getNumber()==10081||
+                        askill.getNumber()==10062||
+                        askill.getNumber()==10063||
+                        askill.getNumber()==10001||
+                        askill.getNumber()==10024||
+                        askill.getNumber()==10027||
+                        askill.getNumber()==10005||
+                        askill.getNumber()==10046||
+                        askill.getNumber()==1002||
+                        askill.getNumber()==10006||
+                        askill.getNumber()==10019||
+                        askill.getNumber()==10020||
+                        askill.getNumber()==10021||
+                        askill.getNumber()==10022||
+                        askill.getNumber()==100023
+                            )) {
                 p.getCommunicator().sendSafeServerMessage("The Magic that flows through your body now, makes it unwilling to use most battle weapons. You will gain no experience in " + askill.getName() + ".");
                 return;
+            }
         }
         else
             TorkelsSadisticPriestRestrictions.logger.log(Level.SEVERE,"Playerfound!");
