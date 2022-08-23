@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="TorkelsSadisticPriestRestrictions">
+    <output-path>D:/Spiele/Steam/steamapps/common/Wurm Unlimited Dedicated Server/mods/TorkelsSadisticPriestRestrictions/</output-path>
+    <root id="archive" name="TorkelsSadisticPriestRestrictions.jar">
+      <element id="module-output" name="Wurm-Unlimited-Sadistic-Priest-Penalties" />
+    </root>
+  </artifact>
+</component>

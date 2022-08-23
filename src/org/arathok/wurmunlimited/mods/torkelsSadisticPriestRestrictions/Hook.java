@@ -12,59 +12,30 @@ import java.util.logging.Level;
 
 public class Hook {
 public static Field parent;
-    public void version3(Skill askill) {
+    public static void skillReset(Player aPlayer) {
         try {
-            parent = FieldUtil.getField(Skill.class, "parent");
+            aPlayer.getSkills().getSkill(1030).setKnowledge(1.0001,false);
 
-        } catch (NoSuchFieldException e) {
-            TorkelsSadisticPriestRestrictions.logger.log(Level.SEVERE, "no such field", e);
-            throw new RuntimeException(e);
+        aPlayer.getSkills().getSkill(10080).setKnowledge(1.0001,false);
+        aPlayer.getSkills().getSkill(10081).setKnowledge(1.0001,false);
+        aPlayer.getSkills().getSkill(10062).setKnowledge(1.0001,false);
+        aPlayer.getSkills().getSkill(10063).setKnowledge(1.0001,false);
+        aPlayer.getSkills().getSkill(10001).setKnowledge(1.0001,false);
+        aPlayer.getSkills().getSkill(10024).setKnowledge(1.0001,false);
+        aPlayer.getSkills().getSkill(10027).setKnowledge(1.0001,false);
+        aPlayer.getSkills().getSkill(10005).setKnowledge(1.0001,false);
+        aPlayer.getSkills().getSkill(10046).setKnowledge(1.0001,false);
+        aPlayer.getSkills().getSkill(1002).setKnowledge(1.0001,false);
+        aPlayer.getSkills().getSkill(10006).setKnowledge(1.0001,false);
+        aPlayer.getSkills().getSkill(10019).setKnowledge(1.0001,false);
+        aPlayer.getSkills().getSkill(10020).setKnowledge(1.0001,false);
+        aPlayer.getSkills().getSkill(10021).setKnowledge(1.0001,false);
+        aPlayer.getSkills().getSkill(10022).setKnowledge(1.0001,false);
+        aPlayer.getSkills().getSkill(10023).setKnowledge(1.0001,false);
+            aPlayer.getCommunicator().sendSafeServerMessage("Becoming a priest filled your body with magic powers, but somehow you feel your knowledge concerning some other cobat skills has vanished");
+        } catch (NoSuchSkillException e) {
+            e.printStackTrace();
         }
-        parent.setAccessible(true);
-        Class<?> targetType = parent.getType();
-        Skills parent2;
-        try {
-            Object objectValue = targetType.newInstance();
-            Object objectValue2 = parent.get(objectValue);
-            parent2 = (Skills) objectValue2;
-        } catch (InstantiationException | IllegalAccessException e) {
-            TorkelsSadisticPriestRestrictions.logger.log(Level.SEVERE,"No Access or Instantation",e);
-            throw new RuntimeException(e);
-        }
-
-
-        Player p = null;
-        p = Players.getInstance().getPlayerOrNull(parent2.getId());
-        if (p!=null) {
-            TorkelsSadisticPriestRestrictions.logger.log(Level.SEVERE, "Playernotfound!");
-            if (p.isPriest()&&askill.getKnowledge()>1.01D&&
-                    (
-                        askill.getNumber()==1030||
-                        askill.getNumber()==10079||
-                        askill.getNumber()==10080||
-                        askill.getNumber()==10081||
-                        askill.getNumber()==10062||
-                        askill.getNumber()==10063||
-                        askill.getNumber()==10001||
-                        askill.getNumber()==10024||
-                        askill.getNumber()==10027||
-                        askill.getNumber()==10005||
-                        askill.getNumber()==10046||
-                        askill.getNumber()==1002||
-                        askill.getNumber()==10006||
-                        askill.getNumber()==10019||
-                        askill.getNumber()==10020||
-                        askill.getNumber()==10021||
-                        askill.getNumber()==10022||
-                        askill.getNumber()==100023
-                            )) {
-                p.getCommunicator().sendSafeServerMessage("The Magic that flows through your body now, makes it unwilling to use most battle weapons. You will gain no experience in " + askill.getName() + ".");
-                return;
-            }
-        }
-        else
-            TorkelsSadisticPriestRestrictions.logger.log(Level.SEVERE,"Playerfound!");
-
 
     }
 

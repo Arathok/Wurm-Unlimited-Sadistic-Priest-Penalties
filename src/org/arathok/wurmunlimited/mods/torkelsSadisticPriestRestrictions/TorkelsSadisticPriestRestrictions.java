@@ -34,13 +34,71 @@ public class TorkelsSadisticPriestRestrictions
     @Override
     public void preInit() {
 
-
+        logger.log(Level.INFO,"Injecting Skill gain stop for priests.");
         try {
             ClassPool classPool = HookManager.getInstance().getClassPool();
-            CtClass ctCreationEntryCreator;
-            ctCreationEntryCreator = classPool.getCtClass("com.wurmonline.server.skills.Skill");
-            ctCreationEntryCreator.getMethod("doSkillGainNew", "(DLcom/wurmonline/server/skills/Skill;DDDFD)V")
-                    .insertBefore("org.arathok.wurmunlimited.mods.torkelsSadisticPriestRestrictions.Hook.version3(this);");
+            CtClass ctSkill;
+            ctSkill = classPool.getCtClass("com.wurmonline.server.skills.Skill");
+            ctSkill.getMethod("doSkillGainNew", "(DDDFD)V")
+                    //.insertBefore("org.arathok.wurmunlimited.mods.torkelsSadisticPriestRestrictions.Hook.version3(this);");
+                    .insertBefore(
+                            "com.wurmonline.server.players.Player p = null;\n" +
+                            "        p = com.wurmonline.server.Players.getInstance().getPlayerOrNull(parent.getId());\n" +
+                            "        if (p!=null) {\n" +
+                            "           com.wurmonline.server.creatures.Communicator communicator = p.getCommunicator();\n" +
+                            "            //TorkelsSadisticPriestRestrictions.logger.log(Level.SEVERE, \"Playernotfound!\");\n" +
+                            "            if (p.isPriest()&&this.getKnowledge()>1.01D&&\n" +
+                            "                    (\n" +
+                            "                        this.getNumber()==1030||\n" +
+                            "                        this.getNumber()==10079||\n" +
+                            "                        this.getNumber()==10080||\n" +
+                            "                        this.getNumber()==10081||\n" +
+                            "                        this.getNumber()==10062||\n" +
+                            "                        this.getNumber()==10063||\n" +
+                            "                        this.getNumber()==10001||\n" +
+                            "                        this.getNumber()==10024||\n" +
+                            "                        this.getNumber()==10027||\n" +
+                            "                        this.getNumber()==10005||\n" +
+                            "                        this.getNumber()==10046||\n" +
+                            "                        this.getNumber()==1002||\n" +
+                            "                        this.getNumber()==10006||\n" +
+                            "                        this.getNumber()==10019||\n" +
+                            "                        this.getNumber()==10020||\n" +
+                            "                        this.getNumber()==10021||\n" +
+                            "                        this.getNumber()==10022||\n" +
+                            "                        this.getNumber()==100023\n" +
+                            "                            )) {\n" +
+                            "            communicator.sendSafeServerMessage(\"The Magic that flows through your body now, makes it unwilling to use most battle weapons. You will gain no experience in \" + this.getName() + \".\");"+
+                            "                return;\n" +
+                            "            }\n" +
+                            "        }\n"
+                            );
+
+
+
+
+        } catch (NotFoundException e) {
+            TorkelsSadisticPriestRestrictions.logger.warning("couldnt find the class: "+e);
+            e.printStackTrace();
+
+
+        } catch (CannotCompileException e) {
+            TorkelsSadisticPriestRestrictions.logger.warning("couldnt compile the inject: " +e);
+            e.printStackTrace();
+
+
+        }
+
+        logger.log(Level.INFO,"Injecting Skill reset for priests.");
+        try {
+            ClassPool classPool = HookManager.getInstance().getClassPool();
+            CtClass ctPlayer;
+            ctPlayer = classPool.getCtClass("com.wurmonline.server.players.Player");
+            ctPlayer.getMethod("setPriest", "(Z)V")
+                    //.insertBefore("org.arathok.wurmunlimited.mods.torkelsSadisticPriestRestrictions.Hook.version3(this);");
+                    .insertAfter("org.arathok.wurmunlimited.mods.torkelsSadisticPriestRestrictions.Hook.skillReset(this);");
+
+
 
 
         } catch (NotFoundException e) {
