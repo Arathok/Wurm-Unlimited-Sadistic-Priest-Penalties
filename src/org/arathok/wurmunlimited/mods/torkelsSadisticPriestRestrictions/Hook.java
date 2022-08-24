@@ -43,6 +43,9 @@ public static Field parent;
         } catch (NoSpaceException e) {
             throw new RuntimeException(e);
         }
+
+
+
     }
 
    /*
@@ -54,7 +57,7 @@ private final void doSkillGainNew(double check, double power, double learnMod, f
     if (sType == 1 || sType == 0)
       awardBonus = false;
     if (diff <= 15.0D && awardBonus)
-      bonus = 1.0D + 0.10000000149011612D * diff / 15.0D;
+      bonus = 1.0D   0.10000000149011612D * diff / 15.0D;
     if (power < 0.0D) {
       if (this.knowledge < 20.0D)
         alterSkill((100.0D - this.knowledge) / getDifficulty(this.parent.priest) * this.knowledge * this.knowledge * learnMod * bonus, false, times, true, skillDivider);

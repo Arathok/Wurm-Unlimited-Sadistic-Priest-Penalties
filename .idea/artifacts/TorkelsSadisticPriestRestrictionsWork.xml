@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="TorkelsSadisticPriestRestrictionsWork">
+    <output-path>$PROJECT_DIR$/../backup/backup/mods/TorkelsSadisticPriestRestrictions</output-path>
+    <root id="archive" name="TorkelsSadisticPriestRestrictions.jar">
+      <element id="module-output" name="Wurm-Unlimited-Sadistic-Priest-Penalties" />
+    </root>
+  </artifact>
+</component>

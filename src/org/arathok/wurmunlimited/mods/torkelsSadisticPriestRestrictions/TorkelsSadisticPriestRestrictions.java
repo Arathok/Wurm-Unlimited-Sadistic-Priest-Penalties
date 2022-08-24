@@ -44,12 +44,13 @@ public class TorkelsSadisticPriestRestrictions
                     .insertBefore(
                             "com.wurmonline.server.players.Player p = null;\n" +
                             "        p = com.wurmonline.server.Players.getInstance().getPlayerOrNull(parent.getId());\n"+
-                            "        com.wurmonline.items.Item equippedItem=p.getEquippedItem((byte)38);\n"+
+                            "        com.wurmonline.server.items.Item equippedItem=p.getEquippedItem((byte)38);\n"+
+                            "        com.wurmonline.server.items.ItemTemplate equippedTemplate=equippedItem.getTemplate();\n"+
                             "        if (p!=null) {\n" +
                             "           com.wurmonline.server.creatures.Communicator communicator = p.getCommunicator();\n" +
                             "            //TorkelsSadisticPriestRestrictions.logger.log(Level.SEVERE, \"Playernotfound!\");\n" +
-                            "            if (p.isPriest()&&this.getKnowledge()=>1.0D)\n" +
-                            "               if((!equippedItem.getTemplate.getName().contains(\"two\")||!equippedItem.getTemplate().getName().contains(\"huge\")||!equippedItem.getTemplate().getName().contains(\"large maul\")&&\n"+
+                            "            if (p.isPriest()&&this.getKnowledge()>=1.0D)\n" +
+                            "               if((!equippedTemplate.getName().contains(\"two\")||!equippedTemplate.getName().contains(\"huge\")||!equippedTemplate.getName().contains(\"large maul\"))&&\n"+
                             "                    (\n" +
                             "                        this.getNumber()==1000||\n" +
                             "                        this.getNumber()==1004||\n" +
