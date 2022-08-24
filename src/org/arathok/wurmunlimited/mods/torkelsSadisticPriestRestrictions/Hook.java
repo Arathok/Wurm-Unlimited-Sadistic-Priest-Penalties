@@ -1,6 +1,7 @@
 package org.arathok.wurmunlimited.mods.torkelsSadisticPriestRestrictions;
 
 import com.wurmonline.server.Players;
+import com.wurmonline.server.items.NoSpaceException;
 import com.wurmonline.server.players.Player;
 
 import com.wurmonline.server.skills.*;
@@ -32,11 +33,16 @@ public static Field parent;
         aPlayer.getSkills().getSkill(10021).setKnowledge(1.0001,false);
         aPlayer.getSkills().getSkill(10022).setKnowledge(1.0001,false);
         aPlayer.getSkills().getSkill(10023).setKnowledge(1.0001,false);
-            aPlayer.getCommunicator().sendSafeServerMessage("Becoming a priest filled your body with magic powers, but somehow you feel your knowledge concerning some other cobat skills has vanished");
+            aPlayer.getCommunicator().sendSafeServerMessage("Becoming a priest filled your body with magic powers, but somehow you feel your knowledge concerning some other combat skills has vanished.");
+            TorkelsSadisticPriestRestrictions.logger.log(Level.INFO,"Resetting skills for player: "+ aPlayer.getName()+" because they priested");
         } catch (NoSuchSkillException e) {
             e.printStackTrace();
         }
-
+        try {
+            aPlayer.getEquippedItem((byte)38);
+        } catch (NoSpaceException e) {
+            throw new RuntimeException(e);
+        }
     }
 
    /*

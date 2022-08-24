@@ -43,12 +43,17 @@ public class TorkelsSadisticPriestRestrictions
                     //.insertBefore("org.arathok.wurmunlimited.mods.torkelsSadisticPriestRestrictions.Hook.version3(this);");
                     .insertBefore(
                             "com.wurmonline.server.players.Player p = null;\n" +
-                            "        p = com.wurmonline.server.Players.getInstance().getPlayerOrNull(parent.getId());\n" +
+                            "        p = com.wurmonline.server.Players.getInstance().getPlayerOrNull(parent.getId());\n"+
+                            "        com.wurmonline.items.Item equippedItem=p.getEquippedItem((byte)38);\n"+
                             "        if (p!=null) {\n" +
                             "           com.wurmonline.server.creatures.Communicator communicator = p.getCommunicator();\n" +
                             "            //TorkelsSadisticPriestRestrictions.logger.log(Level.SEVERE, \"Playernotfound!\");\n" +
-                            "            if (p.isPriest()&&this.getKnowledge()>1.01D&&\n" +
+                            "            if (p.isPriest()&&this.getKnowledge()=>1.0D)\n" +
+                            "               if((!equippedItem.getTemplate.getName().contains(\"two\")||!equippedItem.getTemplate().getName().contains(\"huge\")||!equippedItem.getTemplate().getName().contains(\"large maul\")&&\n"+
                             "                    (\n" +
+                            "                        this.getNumber()==1000||\n" +
+                            "                        this.getNumber()==1004||\n" +
+                            "                        this.getNumber()==1003||\n" +
                             "                        this.getNumber()==1030||\n" +
                             "                        this.getNumber()==10079||\n" +
                             "                        this.getNumber()==10080||\n" +
