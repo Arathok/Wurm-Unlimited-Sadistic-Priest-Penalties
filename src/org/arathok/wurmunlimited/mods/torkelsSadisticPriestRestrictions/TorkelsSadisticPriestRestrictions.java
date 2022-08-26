@@ -50,7 +50,7 @@ public class TorkelsSadisticPriestRestrictions
                             "           com.wurmonline.server.creatures.Communicator communicator = p.getCommunicator();\n" +
                             "            //TorkelsSadisticPriestRestrictions.logger.log(Level.SEVERE, \"Playernotfound!\");\n" +
                             "            if (p.isPriest()&&this.getKnowledge()>=1.0D)\n" +
-                            "               if((!equippedTemplate.getName().contains(\"two\")||!equippedTemplate.getName().contains(\"huge\")||!equippedTemplate.getName().contains(\"large maul\"))&&\n"+
+                            "               if(!(equippedItem.getTemplateId()==81||equippedItem.getTemplateId()==87||equippedItem.getTemplateId()==290)&&\n"+
                             "                    (\n" +
                             "                        this.getNumber()==1000||\n" +
                             "                        this.getNumber()==1004||\n" +
@@ -74,7 +74,7 @@ public class TorkelsSadisticPriestRestrictions
                             "                        this.getNumber()==10022||\n" +
                             "                        this.getNumber()==100023\n" +
                             "                            )) {\n" +
-                            "            communicator.sendSafeServerMessage(\"The Magic that flows through your body now, makes it unwilling to use most battle weapons. You will gain no experience in \" + this.getName() + \".\");"+
+                            "            communicator.sendSafeServerMessage(equippedTemplate.getName()+\"The Magic that flows through your body now, makes it unwilling to use most battle weapons. You will gain no experience in \" + this.getName() + \".\");"+
                             "                return;\n" +
                             "            }\n" +
                             "        }\n"
