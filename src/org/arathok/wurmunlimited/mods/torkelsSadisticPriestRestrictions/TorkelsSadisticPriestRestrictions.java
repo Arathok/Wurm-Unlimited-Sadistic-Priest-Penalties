@@ -74,7 +74,7 @@ public class TorkelsSadisticPriestRestrictions
                             "                        this.getNumber()==10022||\n" +
                             "                        this.getNumber()==100023\n" +
                             "                            )) {\n" +
-                            "            communicator.sendSafeServerMessage(equippedTemplate.getName()+\"The Magic that flows through your body now, makes it unwilling to use most battle weapons. You will gain no experience in \" + this.getName() + \".\");"+
+                            "            communicator.sendSafeServerMessage(\"The Magic that flows through your body now, makes it unwilling to use most battle weapons. You will gain no experience in \" + this.getName() + \".\");"+
                             "                return;\n" +
                             "            }\n" +
                             "        }\n"
