@@ -37,7 +37,6 @@ public class TorkelsSadisticPriestRestrictions
         logger.log(Level.INFO,"Injecting Skill gain stop for priests.");
         try {
 
-
             ClassPool classPool = HookManager.getInstance().getClassPool();
             CtClass ctSkill;
             ctSkill = classPool.getCtClass("com.wurmonline.server.skills.Skill");
@@ -47,12 +46,16 @@ public class TorkelsSadisticPriestRestrictions
                             "com.wurmonline.server.players.Player p = null;\n" +
                             "        p = com.wurmonline.server.Players.getInstance().getPlayerOrNull(parent.getId());\n"+
                             "        com.wurmonline.server.items.Item equippedItem=p.getEquippedItem((byte)38);\n"+
-                            "        com.wurmonline.server.items.ItemTemplate equippedTemplate=equippedItem.getTemplate();\n"+
+                            "        com.wurmonline.server.items.ItemTemplate equippedTemplate;\n"+
+                            "        if(equippedItem!=null)\n"+
+                            "        equippedTemplate=equippedItem.getTemplate();\n"+
+                            "        else \n"+
+                            "        equippedTemplate= 14; \n"+
                             "        if (p!=null&&p.getPower()<2) {\n" +
                             "           com.wurmonline.server.creatures.Communicator communicator = p.getCommunicator();\n" +
                             "            //TorkelsSadisticPriestRestrictions.logger.log(Level.SEVERE, \"Playernotfound!\");\n" +
                             "            if (p.isPriest()&&this.getKnowledge()>=1.1D)\n" +
-                            "               if(!(equippedItem.getTemplateId()==81||equippedItem.getTemplateId()==87||equippedItem.getTemplateId()==290)&&\n"+
+                            "               if(!(equippedTemplate==81||equippedTemplate==87||equippedTemplate==290)&&\n"+
                             "                    (\n" +
                             "                        this.getNumber()==1000||\n" +
                             "                        this.getNumber()==1004||\n" +
