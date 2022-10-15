@@ -36,6 +36,8 @@ public class TorkelsSadisticPriestRestrictions
 
         logger.log(Level.INFO,"Injecting Skill gain stop for priests.");
         try {
+
+
             ClassPool classPool = HookManager.getInstance().getClassPool();
             CtClass ctSkill;
             ctSkill = classPool.getCtClass("com.wurmonline.server.skills.Skill");
@@ -46,10 +48,10 @@ public class TorkelsSadisticPriestRestrictions
                             "        p = com.wurmonline.server.Players.getInstance().getPlayerOrNull(parent.getId());\n"+
                             "        com.wurmonline.server.items.Item equippedItem=p.getEquippedItem((byte)38);\n"+
                             "        com.wurmonline.server.items.ItemTemplate equippedTemplate=equippedItem.getTemplate();\n"+
-                            "        if (p!=null) {\n" +
+                            "        if (p!=null&&p.getPower()<2) {\n" +
                             "           com.wurmonline.server.creatures.Communicator communicator = p.getCommunicator();\n" +
                             "            //TorkelsSadisticPriestRestrictions.logger.log(Level.SEVERE, \"Playernotfound!\");\n" +
-                            "            if (p.isPriest()&&this.getKnowledge()>=1.0D)\n" +
+                            "            if (p.isPriest()&&this.getKnowledge()>=1.1D)\n" +
                             "               if(!(equippedItem.getTemplateId()==81||equippedItem.getTemplateId()==87||equippedItem.getTemplateId()==290)&&\n"+
                             "                    (\n" +
                             "                        this.getNumber()==1000||\n" +
