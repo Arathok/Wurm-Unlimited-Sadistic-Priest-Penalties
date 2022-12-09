@@ -1,6 +1,7 @@
 package org.arathok.wurmunlimited.mods.torkelsSadisticPriestRestrictions;
 
 import com.wurmonline.server.Players;
+import com.wurmonline.server.deities.Deity;
 import com.wurmonline.server.items.ItemList;
 import com.wurmonline.server.items.NoSpaceException;
 import com.wurmonline.server.players.Player;
@@ -16,7 +17,11 @@ public class Hook {
 public static Field parent;
     public static void skillReset(Player aPlayer) {
         try {
-            int deityNum=aPlayer.getDeity().getNumber();
+
+            int deityNum=0;
+            if(aPlayer.isPriest())
+                deityNum=aPlayer.getDeity().getNumber();
+
             if (deityNum==1)
             {
 

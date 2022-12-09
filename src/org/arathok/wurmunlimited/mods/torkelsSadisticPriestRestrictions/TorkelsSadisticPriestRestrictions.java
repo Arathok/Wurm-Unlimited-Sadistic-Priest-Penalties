@@ -201,6 +201,40 @@ public class TorkelsSadisticPriestRestrictions
                             "                return;\n" +
                             "            }\n" +
                             "        }\n" +
+                            "        else if (!p.isPriest()&&this.getKnowledge()>=10.0D)\n" +
+                            "              { if(\n" +
+                            "                        this.getNumber()==1030||\n" +
+                            "                        this.getNumber()==10080||\n" +
+                            "                        this.getNumber()==10079||\n" +
+                            "                        this.getNumber()==10081||\n" +
+                            "                        this.getNumber()==1004||\n" +
+                            "                        this.getNumber()==10061||\n" +
+                            "                        this.getNumber()==10062||\n" +
+                            "                        this.getNumber()==10063||\n" +
+                            "                        this.getNumber()==1003||\n" +
+                            "                        this.getNumber()==10001||\n" +
+                            "                        this.getNumber()==10024||\n" +
+                            "                        this.getNumber()==10025||\n" +
+                            "                        this.getNumber()==1000||\n" +
+                            "                        this.getNumber()==10027||\n" +
+                            "                        this.getNumber()==10005||\n" +
+                            "                        this.getNumber()==10046||\n" +
+                            "                        this.getNumber()==1002||\n" +
+                            "                        this.getNumber()==10006||\n" +
+                            "                        this.getNumber()==10019||\n" +
+                            "                        this.getNumber()==10020||\n" +
+                            "                        this.getNumber()==10021\n" +
+                            "                        this.getNumber()==10022\n" +
+                            "                        this.getNumber()==10023\n" +
+                            "                        this.getNumber()==1025\n" +
+                            "                        this.getNumber()==10064\n" +
+                            "                        this.getNumber()==10089\n" +
+                            "                        this.getNumber()==10090\n" +
+                            "                            ) {\n" +
+                            "            communicator.sendSafeServerMessage(\"Something blocks your knowledge from going further in this Skill. Maybe you need to consult a deity? You will gain no further experience in \" + this.getName() + \".\");"+
+                            "                return;\n" +
+                            "            }\n" +
+                            "        }\n" +
                             "     }\n"
                             );
 
