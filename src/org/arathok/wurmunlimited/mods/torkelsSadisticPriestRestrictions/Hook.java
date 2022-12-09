@@ -1,6 +1,7 @@
 package org.arathok.wurmunlimited.mods.torkelsSadisticPriestRestrictions;
 
 import com.wurmonline.server.Players;
+import com.wurmonline.server.items.ItemList;
 import com.wurmonline.server.items.NoSpaceException;
 import com.wurmonline.server.players.Player;
 
@@ -15,24 +16,168 @@ public class Hook {
 public static Field parent;
     public static void skillReset(Player aPlayer) {
         try {
-            aPlayer.getSkills().getSkill(1030).setKnowledge(1.0001,false);
+            int deityNum=aPlayer.getDeity().getNumber();
+            if (deityNum==1)
+            {
 
-        aPlayer.getSkills().getSkill(10080).setKnowledge(1.0001,false);
-        aPlayer.getSkills().getSkill(10081).setKnowledge(1.0001,false);
-        aPlayer.getSkills().getSkill(10062).setKnowledge(1.0001,false);
-        aPlayer.getSkills().getSkill(10063).setKnowledge(1.0001,false);
-        aPlayer.getSkills().getSkill(10001).setKnowledge(1.0001,false);
-        aPlayer.getSkills().getSkill(10024).setKnowledge(1.0001,false);
-        aPlayer.getSkills().getSkill(10027).setKnowledge(1.0001,false);
-        aPlayer.getSkills().getSkill(10005).setKnowledge(1.0001,false);
-        aPlayer.getSkills().getSkill(10046).setKnowledge(1.0001,false);
-        aPlayer.getSkills().getSkill(1002).setKnowledge(1.0001,false);
-        aPlayer.getSkills().getSkill(10006).setKnowledge(1.0001,false);
-        aPlayer.getSkills().getSkill(10019).setKnowledge(1.0001,false);
-        aPlayer.getSkills().getSkill(10020).setKnowledge(1.0001,false);
-        aPlayer.getSkills().getSkill(10021).setKnowledge(1.0001,false);
-        aPlayer.getSkills().getSkill(10022).setKnowledge(1.0001,false);
-        aPlayer.getSkills().getSkill(10023).setKnowledge(1.0001,false);
+                aPlayer.getSkills().getSkill(1030).setKnowledge(1.0001,false);// Archery
+                aPlayer.getSkills().getSkill(10080).setKnowledge(1.0001,false); // Bow Short
+                aPlayer.getSkills().getSkill(10079).setKnowledge(1.0001,false);// Bow Medium
+                aPlayer.getSkills().getSkill(10081).setKnowledge(1.0001,false); // Bow Long
+                aPlayer.getSkills().getSkill(1004).setKnowledge(1.0001,false); // Mauls
+                aPlayer.getSkills().getSkill(10061).setKnowledge(1.0001,false); // Maul Large
+                aPlayer.getSkills().getSkill(10062).setKnowledge(1.0001,false); // Maul Medium
+                aPlayer.getSkills().getSkill(10063).setKnowledge(1.0001,false); // Maul Small
+                aPlayer.getSkills().getSkill(1003).setKnowledge(1.0001,false); // Axes
+                aPlayer.getSkills().getSkill(10001).setKnowledge(1.0001,false); // Axe Small
+                aPlayer.getSkills().getSkill(10024).setKnowledge(1.0001,false); // Axe large
+                aPlayer.getSkills().getSkill(10025).setKnowledge(1.0001,false); // Axe huge
+                aPlayer.getSkills().getSkill(1000).setKnowledge(1.0001,false); // Swords
+                aPlayer.getSkills().getSkill(10027).setKnowledge(1.0001,false); // Sword short
+                aPlayer.getSkills().getSkill(10005).setKnowledge(1.0001,false); // Sword Long
+                aPlayer.getSkills().getSkill(10046).setKnowledge(1.0001,false); // Sickle
+                aPlayer.getSkills().getSkill(1002).setKnowledge(1.0001,false); //Group Shields
+                aPlayer.getSkills().getSkill(10006).setKnowledge(1.0001,false); // Medium Metal
+                aPlayer.getSkills().getSkill(10019).setKnowledge(1.0001,false); // Small WOod
+                aPlayer.getSkills().getSkill(10020).setKnowledge(1.0001,false); // Medium Wood
+                aPlayer.getSkills().getSkill(10021).setKnowledge(1.0001,false); // Large Wood
+                aPlayer.getSkills().getSkill(10022).setKnowledge(1.0001,false); // Small Metal Shield
+                aPlayer.getSkills().getSkill(10023).setKnowledge(1.0001,false); // Large Metal Shield
+
+                aPlayer.getSkills().getSkill(1025).setKnowledge(1.0001,false); // Clubs
+                aPlayer.getSkills().getSkill(10064).setKnowledge(1.0001,false); // Huge Club
+
+            }
+           if (deityNum>=2&&deityNum<=4) // Normal Priests get nothing
+           {
+               aPlayer.getSkills().getSkill(1030).setKnowledge(1.0001,false);// Archery
+               aPlayer.getSkills().getSkill(10080).setKnowledge(1.0001,false); // Bow Short
+               aPlayer.getSkills().getSkill(10079).setKnowledge(1.0001,false);// Bow Medium
+               aPlayer.getSkills().getSkill(10081).setKnowledge(1.0001,false); // Bow Long
+               aPlayer.getSkills().getSkill(1004).setKnowledge(1.0001,false); // Mauls
+               aPlayer.getSkills().getSkill(10061).setKnowledge(1.0001,false); // Maul Large
+               aPlayer.getSkills().getSkill(10062).setKnowledge(1.0001,false); // Maul Medium
+               aPlayer.getSkills().getSkill(10063).setKnowledge(1.0001,false); // Maul Small
+               aPlayer.getSkills().getSkill(1003).setKnowledge(1.0001,false); // Axes
+               aPlayer.getSkills().getSkill(10001).setKnowledge(1.0001,false); // Axe Small
+               aPlayer.getSkills().getSkill(10024).setKnowledge(1.0001,false); // Axe large
+               aPlayer.getSkills().getSkill(10025).setKnowledge(1.0001,false); // Axe huge
+               aPlayer.getSkills().getSkill(1000).setKnowledge(1.0001,false); // Swords
+               aPlayer.getSkills().getSkill(10027).setKnowledge(1.0001,false); // Sword short
+               aPlayer.getSkills().getSkill(10005).setKnowledge(1.0001,false); // Sword Long
+               aPlayer.getSkills().getSkill(10046).setKnowledge(1.0001,false); // Sickle
+               aPlayer.getSkills().getSkill(1002).setKnowledge(1.0001,false); //Group Shields
+               aPlayer.getSkills().getSkill(10006).setKnowledge(1.0001,false); // Medium Metal
+               aPlayer.getSkills().getSkill(10019).setKnowledge(1.0001,false); // Small WOod
+               aPlayer.getSkills().getSkill(10020).setKnowledge(1.0001,false); // Medium Wood
+               aPlayer.getSkills().getSkill(10021).setKnowledge(1.0001,false); // Large Wood
+               aPlayer.getSkills().getSkill(10022).setKnowledge(1.0001,false); // Small Metal Shield
+               aPlayer.getSkills().getSkill(10023).setKnowledge(1.0001,false); // Large Metal Shield
+               aPlayer.getSkills().getSkill(1033).setKnowledge(1.0001,false); // Polearms
+               aPlayer.getSkills().getSkill(10088).setKnowledge(1.0001,false); // Spear Long
+               aPlayer.getSkills().getSkill(1025).setKnowledge(1.0001,false); // Clubs
+               aPlayer.getSkills().getSkill(10064).setKnowledge(1.0001,false); // Huge Club
+               aPlayer.getSkills().getSkill(10089).setKnowledge(1.0001,false); // Halberd
+               aPlayer.getSkills().getSkill(10090).setKnowledge(1.0001,false); // Staff
+           }
+
+           if (deityNum==101||deityNum==105||deityNum==107) // Hawkeye, Silverranger, Phantomranger
+           {
+
+
+               aPlayer.getSkills().getSkill(10061).setKnowledge(1.0001,false); // Maul Large
+               aPlayer.getSkills().getSkill(10062).setKnowledge(1.0001,false); // Maul Medium
+
+
+               aPlayer.getSkills().getSkill(10024).setKnowledge(1.0001,false); // Axe large
+               aPlayer.getSkills().getSkill(10025).setKnowledge(1.0001,false); // Axe huge
+
+               aPlayer.getSkills().getSkill(10005).setKnowledge(1.0001,false); // Sword Long
+               aPlayer.getSkills().getSkill(10046).setKnowledge(1.0001,false); // Sickle
+               aPlayer.getSkills().getSkill(1002).setKnowledge(1.0001,false); //Group Shields
+               aPlayer.getSkills().getSkill(10006).setKnowledge(1.0001,false); // Medium Metal
+               aPlayer.getSkills().getSkill(10019).setKnowledge(1.0001,false); // Small WOod
+               aPlayer.getSkills().getSkill(10020).setKnowledge(1.0001,false); // Medium Wood
+               aPlayer.getSkills().getSkill(10021).setKnowledge(1.0001,false); // Large Wood
+               aPlayer.getSkills().getSkill(10022).setKnowledge(1.0001,false); // Small Metal Shield
+               aPlayer.getSkills().getSkill(10023).setKnowledge(1.0001,false); // Large Metal Shield
+               aPlayer.getSkills().getSkill(1033).setKnowledge(1.0001,false); // Polearms
+               aPlayer.getSkills().getSkill(10088).setKnowledge(1.0001,false); // Spear Long
+               aPlayer.getSkills().getSkill(1025).setKnowledge(1.0001,false); // Clubs
+               aPlayer.getSkills().getSkill(10064).setKnowledge(1.0001,false); // Huge Club
+               aPlayer.getSkills().getSkill(10089).setKnowledge(1.0001,false); // Halberd
+               aPlayer.getSkills().getSkill(10090).setKnowledge(1.0001,false); // Staff
+           }
+
+            if (deityNum==102||deityNum==104||deityNum==108) // Avenger, Shillenknight, Templeknight
+            {
+                aPlayer.getSkills().getSkill(1030).setKnowledge(1.0001,false);// Archery
+                aPlayer.getSkills().getSkill(10080).setKnowledge(1.0001,false); // Bow Short
+                aPlayer.getSkills().getSkill(10079).setKnowledge(1.0001,false);// Bow Medium
+                aPlayer.getSkills().getSkill(10081).setKnowledge(1.0001,false); // Bow Long
+
+
+                aPlayer.getSkills().getSkill(10062).setKnowledge(1.0001,false); // Maul Medium
+                aPlayer.getSkills().getSkill(10063).setKnowledge(1.0001,false); // Maul Small
+                aPlayer.getSkills().getSkill(1003).setKnowledge(1.0001,false); // Axes
+                aPlayer.getSkills().getSkill(10001).setKnowledge(1.0001,false); // Axe Small
+
+                aPlayer.getSkills().getSkill(10025).setKnowledge(1.0001,false); // Axe huge
+
+                aPlayer.getSkills().getSkill(10027).setKnowledge(1.0001,false); // Sword short
+
+                aPlayer.getSkills().getSkill(10046).setKnowledge(1.0001,false); // Sickle
+
+                aPlayer.getSkills().getSkill(10006).setKnowledge(1.0001,false); // Medium Metal
+                aPlayer.getSkills().getSkill(10019).setKnowledge(1.0001,false); // Small WOod
+                aPlayer.getSkills().getSkill(10020).setKnowledge(1.0001,false); // Medium Wood
+
+                aPlayer.getSkills().getSkill(10022).setKnowledge(1.0001,false); // Small Metal Shield
+
+                aPlayer.getSkills().getSkill(1033).setKnowledge(1.0001,false); // Polearms
+                aPlayer.getSkills().getSkill(10088).setKnowledge(1.0001,false); // Spear Long
+                aPlayer.getSkills().getSkill(1025).setKnowledge(1.0001,false); // Clubs
+                aPlayer.getSkills().getSkill(10064).setKnowledge(1.0001,false); // Huge Club
+                aPlayer.getSkills().getSkill(10089).setKnowledge(1.0001,false); // Halberd
+                aPlayer.getSkills().getSkill(10090).setKnowledge(1.0001,false); // Staff
+            }
+
+            if (deityNum==103||deityNum==106) // Oracle, Prophet
+            {
+                aPlayer.getSkills().getSkill(1030).setKnowledge(1.0001,false);// Archery
+                aPlayer.getSkills().getSkill(10080).setKnowledge(1.0001,false); // Bow Short
+                aPlayer.getSkills().getSkill(10079).setKnowledge(1.0001,false);// Bow Medium
+                aPlayer.getSkills().getSkill(10081).setKnowledge(1.0001,false); // Bow Long
+                aPlayer.getSkills().getSkill(1004).setKnowledge(1.0001,false); // Mauls
+                aPlayer.getSkills().getSkill(10061).setKnowledge(1.0001,false); // Maul Large
+                aPlayer.getSkills().getSkill(10062).setKnowledge(1.0001,false); // Maul Medium
+                aPlayer.getSkills().getSkill(10063).setKnowledge(1.0001,false); // Maul Small
+                aPlayer.getSkills().getSkill(1003).setKnowledge(1.0001,false); // Axes
+                aPlayer.getSkills().getSkill(10001).setKnowledge(1.0001,false); // Axe Small
+                aPlayer.getSkills().getSkill(10024).setKnowledge(1.0001,false); // Axe large
+                aPlayer.getSkills().getSkill(10025).setKnowledge(1.0001,false); // Axe huge
+                aPlayer.getSkills().getSkill(1000).setKnowledge(1.0001,false); // Swords
+                aPlayer.getSkills().getSkill(10027).setKnowledge(1.0001,false); // Sword short
+                aPlayer.getSkills().getSkill(10005).setKnowledge(1.0001,false); // Sword Long
+
+
+                aPlayer.getSkills().getSkill(10006).setKnowledge(1.0001,false); // Medium Metal
+
+                aPlayer.getSkills().getSkill(10020).setKnowledge(1.0001,false); // Medium Wood
+                aPlayer.getSkills().getSkill(10021).setKnowledge(1.0001,false); // Large Wood
+
+                aPlayer.getSkills().getSkill(10023).setKnowledge(1.0001,false); // Large Metal Shield
+                aPlayer.getSkills().getSkill(1033).setKnowledge(1.0001,false); // Polearms
+                aPlayer.getSkills().getSkill(10088).setKnowledge(1.0001,false); // Spear Long
+                aPlayer.getSkills().getSkill(1025).setKnowledge(1.0001,false); // Clubs
+                aPlayer.getSkills().getSkill(10064).setKnowledge(1.0001,false); // Huge Club
+                aPlayer.getSkills().getSkill(10089).setKnowledge(1.0001,false); // Halberd
+                aPlayer.getSkills().getSkill(10090).setKnowledge(1.0001,false); // Staff
+            }
+
+
+
+
             aPlayer.getCommunicator().sendSafeServerMessage("Becoming a priest filled your body with magic powers, but somehow you feel your knowledge concerning some other combat skills has vanished.");
             TorkelsSadisticPriestRestrictions.logger.log(Level.INFO,"Resetting skills for player: "+ aPlayer.getName()+" because they priested");
         } catch (NoSuchSkillException e) {
@@ -45,8 +190,10 @@ public static Field parent;
         }
 
 
-
+    
     }
+    
+
 
    /*
 private final void doSkillGainNew(double check, double power, double learnMod, float times, double skillDivider) {

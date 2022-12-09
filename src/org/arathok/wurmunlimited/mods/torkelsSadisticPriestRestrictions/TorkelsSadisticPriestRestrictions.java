@@ -47,27 +47,25 @@ public class TorkelsSadisticPriestRestrictions
                             "        p = com.wurmonline.server.Players.getInstance().getPlayerOrNull(parent.getId());\n"+
                             "        com.wurmonline.server.items.Item equippedItem=p.getEquippedItem((byte)38);\n"+
                             "        com.wurmonline.server.items.ItemTemplate equippedTemplate;\n"+
-                            "        if(equippedItem!=null)\n"+
-                            "        equippedTemplate=equippedItem.getTemplate();\n"+
-                            "        else \n"+
-                            "        equippedTemplate= 14; \n"+
+
                             "        if (p!=null&&p.getPower()<2) {\n" +
                             "           com.wurmonline.server.creatures.Communicator communicator = p.getCommunicator();\n" +
                             "            //TorkelsSadisticPriestRestrictions.logger.log(Level.SEVERE, \"Playernotfound!\");\n" +
-                            "            if (p.isPriest()&&this.getKnowledge()>=1.1D)\n" +
-                            "               if(!(equippedTemplate==81||equippedTemplate==87||equippedTemplate==290)&&\n"+
-                            "                    (\n" +
-                            "                        this.getNumber()==1000||\n" +
-                            "                        this.getNumber()==1004||\n" +
-                            "                        this.getNumber()==1003||\n" +
+                            "            if (p.isPriest()&&p.getDeity().getNumber()==1&&this.getKnowledge()>=1.01D)\n" +
+                            "              { if(\n" +
                             "                        this.getNumber()==1030||\n" +
-                            "                        this.getNumber()==10079||\n" +
                             "                        this.getNumber()==10080||\n" +
+                            "                        this.getNumber()==10079||\n" +
                             "                        this.getNumber()==10081||\n" +
+                            "                        this.getNumber()==1004||\n" +
+                            "                        this.getNumber()==10061||\n" +
                             "                        this.getNumber()==10062||\n" +
                             "                        this.getNumber()==10063||\n" +
+                            "                        this.getNumber()==1003||\n" +
                             "                        this.getNumber()==10001||\n" +
                             "                        this.getNumber()==10024||\n" +
+                            "                        this.getNumber()==10025||\n" +
+                            "                        this.getNumber()==1000||\n" +
                             "                        this.getNumber()==10027||\n" +
                             "                        this.getNumber()==10005||\n" +
                             "                        this.getNumber()==10046||\n" +
@@ -75,14 +73,135 @@ public class TorkelsSadisticPriestRestrictions
                             "                        this.getNumber()==10006||\n" +
                             "                        this.getNumber()==10019||\n" +
                             "                        this.getNumber()==10020||\n" +
-                            "                        this.getNumber()==10021||\n" +
-                            "                        this.getNumber()==10022||\n" +
-                            "                        this.getNumber()==100023\n" +
-                            "                            )) {\n" +
+                            "                        this.getNumber()==10021\n" +
+                            "                        this.getNumber()==10022\n" +
+                            "                        this.getNumber()==10023\n" +
+                            "                        this.getNumber()==1025\n" +
+                            "                        this.getNumber()==10064\n" +
+                            "                            ) {\n" +
                             "            communicator.sendSafeServerMessage(\"The Magic that flows through your body now, makes it unwilling to use most battle weapons. You will gain no experience in \" + this.getName() + \".\");"+
                             "                return;\n" +
                             "            }\n" +
-                            "        }\n"
+                            "        }\n" +
+                            "        else if (p.isPriest()&&p.getDeity().getNumber()=>2&&p.getDeity().getNumber()<=4&&this.getKnowledge()>=1.01D)\n" +
+                            "              { if(\n" +
+                            "                        this.getNumber()==1030||\n" +
+                            "                        this.getNumber()==10080||\n" +
+                            "                        this.getNumber()==10079||\n" +
+                            "                        this.getNumber()==10081||\n" +
+                            "                        this.getNumber()==1004||\n" +
+                            "                        this.getNumber()==10061||\n" +
+                            "                        this.getNumber()==10062||\n" +
+                            "                        this.getNumber()==10063||\n" +
+                            "                        this.getNumber()==1003||\n" +
+                            "                        this.getNumber()==10001||\n" +
+                            "                        this.getNumber()==10024||\n" +
+                            "                        this.getNumber()==10025||\n" +
+                            "                        this.getNumber()==1000||\n" +
+                            "                        this.getNumber()==10027||\n" +
+                            "                        this.getNumber()==10005||\n" +
+                            "                        this.getNumber()==10046||\n" +
+                            "                        this.getNumber()==1002||\n" +
+                            "                        this.getNumber()==10006||\n" +
+                            "                        this.getNumber()==10019||\n" +
+                            "                        this.getNumber()==10020||\n" +
+                            "                        this.getNumber()==10021\n" +
+                            "                        this.getNumber()==10022\n" +
+                            "                        this.getNumber()==10023\n" +
+                            "                        this.getNumber()==1025\n" +
+                            "                        this.getNumber()==10064\n" +
+                            "                        this.getNumber()==10089\n" +
+                            "                        this.getNumber()==10090\n" +
+                            "                            ) {\n" +
+                            "            communicator.sendSafeServerMessage(\"The Magic that flows through your body now, makes it unwilling to use most battle weapons. You will gain no experience in \" + this.getName() + \".\");"+
+                            "                return;\n" +
+                            "            }\n" +
+                            "        }\n" +
+                            "else if (p.isPriest()&&(p.getDeity().getNumber()==102||p.getDeity().getNumber()==104||p.getDeity().getNumber()==108)&&this.getKnowledge()>=1.01D)\n" +
+                            "              { if(\n" +
+                            "                        this.getNumber()==1030||\n" +
+                            "                        this.getNumber()==10080||\n" +
+                            "                        this.getNumber()==10079||\n" +
+                            "                        this.getNumber()==10081||\n" +
+                            "                        this.getNumber()==10062||\n" +
+                            "                        this.getNumber()==10063||\n" +
+                            "                        this.getNumber()==1003||\n" +
+                            "                        this.getNumber()==10001||\n" +
+                            "                        this.getNumber()==10025||\n" +
+                            "                        this.getNumber()==10027||\n" +
+                            "                        this.getNumber()==10046||\n" +
+                            "                        this.getNumber()==10006||\n" +
+                            "                        this.getNumber()==10019||\n" +
+                            "                        this.getNumber()==10020\n" +
+                            "                        this.getNumber()==10022\n" +
+                            "                        this.getNumber()==1033\n" +
+                            "                        this.getNumber()==10088\n" +
+                            "                        this.getNumber()==1025\n" +
+                            "                        this.getNumber()==10064\n" +
+                            "                        this.getNumber()==10089\n" +
+                            "                        this.getNumber()==10090\n" +
+                            "                            ) {\n" +
+                            "            communicator.sendSafeServerMessage(\"The Magic that flows through your body now, makes it unwilling to use most battle weapons. You will gain no experience in \" + this.getName() + \".\");"+
+                            "                return;\n" +
+                            "            }\n" +
+                            "        }\n" +
+                            "else if (p.isPriest()&&(p.getDeity().getNumber()==101||p.getDeity().getNumber()==105||p.getDeity().getNumber()==107)&&this.getKnowledge()>=1.01D)\n" +
+                            "              { if(\n" +
+                            "                        this.getNumber()==10061||\n" +
+                            "                        this.getNumber()==10062||\n" +
+                            "                        this.getNumber()==10024||\n" +
+                            "                        this.getNumber()==10025||\n" +
+                            "                        this.getNumber()==10005||\n" +
+                            "                        this.getNumber()==10046||\n" +
+                            "                        this.getNumber()==1002||\n" +
+                            "                        this.getNumber()==10006||\n" +
+                            "                        this.getNumber()==10019||\n" +
+                            "                        this.getNumber()==10020||\n" +
+                            "                        this.getNumber()==10021\n" +
+                            "                        this.getNumber()==10022\n" +
+                            "                        this.getNumber()==10023\n" +
+                            "                        this.getNumber()==1025\n" +
+                            "                        this.getNumber()==10064\n" +
+                            "                        this.getNumber()==10089\n" +
+                            "                        this.getNumber()==10090\n" +
+                            "                            ) {\n" +
+                            "            communicator.sendSafeServerMessage(\"The Magic that flows through your body now, makes it unwilling to use most battle weapons. You will gain no experience in \" + this.getName() + \".\");"+
+                            "                return;\n" +
+                            "            }\n" +
+                            "        }\n" +
+                            "else if (p.isPriest()&&(p.getDeity().getNumber()==103||p.getDeity().getNumber()==106)&&this.getKnowledge()>=1.01D)\n" +
+                            "              { if(\n" +
+                            "                        this.getNumber()==1030||\n" +
+                            "                        this.getNumber()==10080||\n" +
+                            "                        this.getNumber()==10079||\n" +
+                            "                        this.getNumber()==10081||\n" +
+                            "                        this.getNumber()==1004||\n" +
+                            "                        this.getNumber()==10061||\n" +
+                            "                        this.getNumber()==10062||\n" +
+                            "                        this.getNumber()==10063||\n" +
+                            "                        this.getNumber()==1003||\n" +
+                            "                        this.getNumber()==10001||\n" +
+                            "                        this.getNumber()==10024||\n" +
+                            "                        this.getNumber()==10025||\n" +
+                            "                        this.getNumber()==1000||\n" +
+                            "                        this.getNumber()==10027||\n" +
+                            "                        this.getNumber()==10005||\n" +
+                            "                        this.getNumber()==10006||\n" +
+                            "                        this.getNumber()==10020||\n" +
+                            "                        this.getNumber()==10021\n" +
+                            "                        this.getNumber()==10023\n" +
+                            "                        this.getNumber()==1033\n" +
+                            "                        this.getNumber()==10088\n" +
+                            "                        this.getNumber()==1025\n" +
+                            "                        this.getNumber()==10064\n" +
+                            "                        this.getNumber()==10089\n" +
+                            "                        this.getNumber()==10090\n" +
+                            "                            ) {\n" +
+                            "            communicator.sendSafeServerMessage(\"The Magic that flows through your body now, makes it unwilling to use most battle weapons. You will gain no experience in \" + this.getName() + \".\");"+
+                            "                return;\n" +
+                            "            }\n" +
+                            "        }\n" +
+                            "     }\n"
                             );
 
 
