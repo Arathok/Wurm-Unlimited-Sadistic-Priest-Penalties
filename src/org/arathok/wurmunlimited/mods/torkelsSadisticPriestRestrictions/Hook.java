@@ -14,7 +14,7 @@ import java.lang.reflect.Field;
 import java.util.logging.Level;
 
 public class Hook {
-public static Field parent;
+
     public static void skillReset(Player aPlayer) {
         try {
 
@@ -197,37 +197,235 @@ public static Field parent;
 
     
     }
+    public static void skillBlock(Skill aSkill)
+    {/*
+        com.wurmonline.server.players.Player p = null;
+        p = com.wurmonline.server.Players.getInstance().getPlayerOrNull(aSkill.parent.getId());
+        com.wurmonline.server.items.Item equippedItem=p.getEquippedItem((byte)38);
+        com.wurmonline.server.items.ItemTemplate equippedTemplate;
+
+        if (p!=null&&p.getPower()<2) {
+            com.wurmonline.server.creatures.Communicator communicator = p.getCommunicator();
+            //TorkelsSadisticPriestRestrictions.logger.log(Level.SEVERE, \"Playernotfound!\");
+            if (p.isPriest()&&p.getDeity().getNumber()==1&&aSkill.getKnowledge()>=1.01D)
+            { if(
+                    aSkill.getNumber()==1030||
+                            aSkill.getNumber()==10080||
+                            aSkill.getNumber()==10079||
+                            aSkill.getNumber()==10081||
+                            aSkill.getNumber()==1004||
+                            aSkill.getNumber()==10061||
+                            aSkill.getNumber()==10062||
+                            aSkill.getNumber()==10063||
+                            aSkill.getNumber()==1003||
+                            aSkill.getNumber()==10001||
+                            aSkill.getNumber()==10024||
+                            aSkill.getNumber()==10025||
+                            aSkill.getNumber()==1000||
+                            aSkill.getNumber()==10027||
+                            aSkill.getNumber()==10005||
+                            aSkill.getNumber()==10046||
+                            aSkill.getNumber()==1002||
+                            aSkill.getNumber()==10006||
+                            aSkill.getNumber()==10019||
+                            aSkill.getNumber()==10020||
+                            aSkill.getNumber()==10021||
+                aSkill.getNumber()==10022||
+                aSkill.getNumber()==10023||
+                aSkill.getNumber()==1025||
+                aSkill.getNumber()==10064
+                                                      ) {
+                communicator.sendSafeServerMessage("The Magic that flows through your body now, makes it unwilling to use most battle weapons. You will gain no experience in \" + aSkill.getName() + \".\"");
+                return;
+            }
+            }
+            else if (p.isPriest()&&p.getDeity().getNumber()>=2&&p.getDeity().getNumber()<=4&&aSkill.getKnowledge()>=1.01D)
+            { if(
+                    aSkill.getNumber()==1030||
+                            aSkill.getNumber()==10080||
+                            aSkill.getNumber()==10079||
+                            aSkill.getNumber()==10081||
+                            aSkill.getNumber()==1004||
+                            aSkill.getNumber()==10061||
+                            aSkill.getNumber()==10062||
+                            aSkill.getNumber()==10063||
+                            aSkill.getNumber()==1003||
+                            aSkill.getNumber()==10001||
+                            aSkill.getNumber()==10024||
+                            aSkill.getNumber()==10025||
+                            aSkill.getNumber()==1000||
+                            aSkill.getNumber()==10027||
+                            aSkill.getNumber()==10005||
+                            aSkill.getNumber()==10046||
+                            aSkill.getNumber()==1002||
+                            aSkill.getNumber()==10006||
+                            aSkill.getNumber()==10019||
+                            aSkill.getNumber()==10020||
+                            aSkill.getNumber()==10021||
+                aSkill.getNumber()==10022||
+                aSkill.getNumber()==10023||
+                aSkill.getNumber()==1025||
+                aSkill.getNumber()==10064||
+                aSkill.getNumber()==10089||
+                aSkill.getNumber()==10090
+                                                      ) {
+                communicator.sendSafeServerMessage("The Magic that flows through your body now, makes it unwilling to use most battle weapons. You will gain no experience in \" + aSkill.getName() + \".\"");
+                return;
+            }
+            }
+            else if (p.isPriest()&&(p.getDeity().getNumber()==102||p.getDeity().getNumber()==104||p.getDeity().getNumber()==108)&&aSkill.getKnowledge()>=1.01D)
+            { if(
+                    aSkill.getNumber()==1030||
+                            aSkill.getNumber()==10080||
+                            aSkill.getNumber()==10079||
+                            aSkill.getNumber()==10081||
+                            aSkill.getNumber()==10062||
+                            aSkill.getNumber()==10063||
+                            aSkill.getNumber()==1003||
+                            aSkill.getNumber()==10001||
+                            aSkill.getNumber()==10025||
+                            aSkill.getNumber()==10027||
+                            aSkill.getNumber()==10046||
+                            aSkill.getNumber()==10006||
+                            aSkill.getNumber()==10019||
+                            aSkill.getNumber()==10020||
+                aSkill.getNumber()==10022||
+                aSkill.getNumber()==1033||
+                aSkill.getNumber()==10088||
+                aSkill.getNumber()==1025||
+                aSkill.getNumber()==10064||
+                aSkill.getNumber()==10089||
+                aSkill.getNumber()==10090
+                                                      ) {
+                communicator.sendSafeServerMessage("The Magic that flows through your body now, makes it unwilling to use most battle weapons. You will gain no experience in \" + aSkill.getName() + \".\"");
+                return;
+            }
+            }
+            else if (p.isPriest()&&(p.getDeity().getNumber()==101||p.getDeity().getNumber()==105||p.getDeity().getNumber()==107)&&aSkill.getKnowledge()>=1.01D)
+            { if(
+                    aSkill.getNumber()==10061||
+                            aSkill.getNumber()==10062||
+                            aSkill.getNumber()==10024||
+                            aSkill.getNumber()==10025||
+                            aSkill.getNumber()==10005||
+                            aSkill.getNumber()==10046||
+                            aSkill.getNumber()==1002||
+                            aSkill.getNumber()==10006||
+                            aSkill.getNumber()==10019||
+                            aSkill.getNumber()==10020||
+                            aSkill.getNumber()==10021||
+                aSkill.getNumber()==10022||
+                aSkill.getNumber()==10023||
+                aSkill.getNumber()==1025||
+                aSkill.getNumber()==10064||
+                aSkill.getNumber()==10089||
+                aSkill.getNumber()==10090
+                                                      ) {
+                communicator.sendSafeServerMessage("The Magic that flows through your body now, makes it unwilling to use most battle weapons. You will gain no experience in \" + aSkill.getName() + \".\"");
+                return;
+            }
+            }
+            else if (p.isPriest()&&(p.getDeity().getNumber()==103||p.getDeity().getNumber()==106)&&aSkill.getKnowledge()>=1.01D)
+            { if(
+                    aSkill.getNumber()==1030||
+                            aSkill.getNumber()==10080||
+                            aSkill.getNumber()==10079||
+                            aSkill.getNumber()==10081||
+                            aSkill.getNumber()==1004||
+                            aSkill.getNumber()==10061||
+                            aSkill.getNumber()==10062||
+                            aSkill.getNumber()==10063||
+                            aSkill.getNumber()==1003||
+                            aSkill.getNumber()==10001||
+                            aSkill.getNumber()==10024||
+                            aSkill.getNumber()==10025||
+                            aSkill.getNumber()==1000||
+                            aSkill.getNumber()==10027||
+                            aSkill.getNumber()==10005||
+                            aSkill.getNumber()==10006||
+                            aSkill.getNumber()==10020||
+                            aSkill.getNumber()==10021||
+                aSkill.getNumber()==10023||
+                aSkill.getNumber()==1033||
+                aSkill.getNumber()==10088||
+                aSkill.getNumber()==1025||
+                aSkill.getNumber()==10064||
+                aSkill.getNumber()==10089||
+                aSkill.getNumber()==10090
+                                                      ) {
+                communicator.sendSafeServerMessage("The Magic that flows through your body now, makes it unwilling to use most battle weapons. You will gain no experience in \" + aSkill.getName() + \".\"");
+                return;
+            }
+            }
+                                  else if (!p.isPriest()&&aSkill.getKnowledge()>=10.0D)
+            { if(
+                    aSkill.getNumber()==1030||
+                            aSkill.getNumber()==10080||
+                            aSkill.getNumber()==10079||
+                            aSkill.getNumber()==10081||
+                            aSkill.getNumber()==1004||
+                            aSkill.getNumber()==10061||
+                            aSkill.getNumber()==10062||
+                            aSkill.getNumber()==10063||
+                            aSkill.getNumber()==1003||
+                            aSkill.getNumber()==10001||
+                            aSkill.getNumber()==10024||
+                            aSkill.getNumber()==10025||
+                            aSkill.getNumber()==1000||
+                            aSkill.getNumber()==10027||
+                            aSkill.getNumber()==10005||
+                            aSkill.getNumber()==10046||
+                            aSkill.getNumber()==1002||
+                            aSkill.getNumber()==10006||
+                            aSkill.getNumber()==10019||
+                            aSkill.getNumber()==10020||
+                            aSkill.getNumber()==10021||
+                aSkill.getNumber()==10022||
+                aSkill.getNumber()==10023||
+                aSkill.getNumber()==1025||
+                aSkill.getNumber()==10064||
+                aSkill.getNumber()==10089||
+                aSkill.getNumber()==10090
+                                                      ) {
+                communicator.sendSafeServerMessage("Something blocks your knowledge from going further in aSkill Skill. Maybe you need to consult a deity? You will gain no further experience in \" + aSkill.getName() + \".\"");
+                return;
+            }
+            }
+        }
+*/
+
+    }
     
 
 
    /*
 private final void doSkillGainNew(double check, double power, double learnMod, float times, double skillDivider) {
     double bonus = 1.0D;
-    double diff = Math.abs(check - this.knowledge);
-    short sType = SkillSystem.getTypeFor(this.number);
+    double diff = Math.abs(check - aSkill.knowledge);
+    short sType = SkillSystem.getTypeFor(aSkill.number);
     boolean awardBonus = true;
     if (sType == 1 || sType == 0)
       awardBonus = false;
     if (diff <= 15.0D && awardBonus)
       bonus = 1.0D   0.10000000149011612D * diff / 15.0D;
     if (power < 0.0D) {
-      if (this.knowledge < 20.0D)
-        alterSkill((100.0D - this.knowledge) / getDifficulty(this.parent.priest) * this.knowledge * this.knowledge * learnMod * bonus, false, times, true, skillDivider);
+      if (aSkill.knowledge < 20.0D)
+        alterSkill((100.0D - aSkill.knowledge) / getDifficulty(aSkill.parent.priest) * aSkill.knowledge * aSkill.knowledge * learnMod * bonus, false, times, true, skillDivider);
     } else {
-      alterSkill((100.0D - this.knowledge) / getDifficulty(this.parent.priest) * this.knowledge * this.knowledge * learnMod * bonus, false, times, true, skillDivider);
+      alterSkill((100.0D - aSkill.knowledge) / getDifficulty(aSkill.parent.priest) * aSkill.knowledge * aSkill.knowledge * learnMod * bonus, false, times, true, skillDivider);
     }
   }
 
   private final void doSkillGainOld(double power, double learnMod, float times) {
     if (power >= 0.0D)
-      if (this.knowledge < 20.0D) {
-        alterSkill((100.0D - this.knowledge) / getDifficulty(this.parent.priest) * this.knowledge * this.knowledge * learnMod, false, times);
+      if (aSkill.knowledge < 20.0D) {
+        alterSkill((100.0D - aSkill.knowledge) / getDifficulty(aSkill.parent.priest) * aSkill.knowledge * aSkill.knowledge * learnMod, false, times);
       } else if (power > 0.0D && power < 40.0D) {
-        alterSkill((100.0D - this.knowledge) / getDifficulty(this.parent.priest) * this.knowledge * this.knowledge * learnMod, false, times);
-      } else if (this.number == 10055 || this.number == 10053 || this.number == 10054) {
+        alterSkill((100.0D - aSkill.knowledge) / getDifficulty(aSkill.parent.priest) * aSkill.knowledge * aSkill.knowledge * learnMod, false, times);
+      } else if (aSkill.number == 10055 || aSkill.number == 10053 || aSkill.number == 10054) {
         Creature cret = null;
         try {
-          cret = Server.getInstance().getCreature(this.parent.getId());
+          cret = Server.getInstance().getCreature(aSkill.parent.getId());
           if (cret.loggerCreature1 > 0L)
             logger.log(Level.INFO, cret
 
