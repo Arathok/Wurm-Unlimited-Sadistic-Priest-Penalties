@@ -50,7 +50,7 @@ public class TorkelsSadisticPriestRestrictions
                             "        com.wurmonline.server.items.Item equippedItem=p.getEquippedItem((byte)38);\n"+
                             "        com.wurmonline.server.items.ItemTemplate equippedTemplate;\n"+
 
-                            "        if (p!=null&&p.getPower()<2) {\n" +
+                            "        if (p!=null&&p.getPower()<2&&equippedTemplate != null) {\n" +
                             "           com.wurmonline.server.creatures.Communicator communicator = p.getCommunicator();\n" +
                             "            //TorkelsSadisticPriestRestrictions.logger.log(Level.SEVERE, \"Playernotfound!\");\n" +
                             "            if (p.isPriest()&&p.getDeity().getNumber()==1&&this.getKnowledge()>=1.01D)\n" +
@@ -69,6 +69,7 @@ public class TorkelsSadisticPriestRestrictions
                             "                        this.getNumber()==10025||\n" +
                             "                        this.getNumber()==1000||\n" +
                             "                        this.getNumber()==10027||\n" +
+                            "                        this.getNumber()==10028||\n" +
                             "                        this.getNumber()==10005||\n" +
                             "                        this.getNumber()==10046||\n" +
                             "                        this.getNumber()==1002||\n" +
@@ -80,6 +81,9 @@ public class TorkelsSadisticPriestRestrictions
                             "                        this.getNumber()==10023||\n" +
                             "                        this.getNumber()==1025||\n" +
                             "                        this.getNumber()==10064\n" +
+                            "                        this.getNumber()==10070||\n" +
+                            "                        this.getNumber()==1027||\n" +
+                            "                        this.getNumber()==10058\n" +
                             "                            ) {\n" +
                             "            communicator.sendSafeServerMessage(\"The Magic that flows through your body now, makes it unwilling to use most battle weapons. You will gain no experience in \" + this.getName() + \".\");"+
                             "                return;\n" +
@@ -114,6 +118,12 @@ public class TorkelsSadisticPriestRestrictions
                             "                        this.getNumber()==10064||\n" +
                             "                        this.getNumber()==10089||\n" +
                             "                        this.getNumber()==10090\n" +
+                            "                        this.getNumber()==10088\n" +
+                            "                        this.getNumber()==1033\n" +
+                             "                        this.getNumber()==10070||\n" +
+                            "                        this.getNumber()==1027||\n" +
+                            "                        this.getNumber()==10058\n" +
+                            "                        this.getNumber()==10028\n" +
                             "                            ) {\n" +
                             "            communicator.sendSafeServerMessage(\"The Magic that flows through your body now, makes it unwilling to use most battle weapons. You will gain no experience in \" + this.getName() + \".\");"+
                             "                return;\n" +
@@ -125,11 +135,11 @@ public class TorkelsSadisticPriestRestrictions
                             "                        this.getNumber()==10080||\n" +
                             "                        this.getNumber()==10079||\n" +
                             "                        this.getNumber()==10081||\n" +
-                            "                        this.getNumber()==10062||\n" +
+
                             "                        this.getNumber()==10063||\n" +
-                            "                        this.getNumber()==1003||\n" +
+
                             "                        this.getNumber()==10001||\n" +
-                            "                        this.getNumber()==10025||\n" +
+
                             "                        this.getNumber()==10027||\n" +
                             "                        this.getNumber()==10046||\n" +
                             "                        this.getNumber()==10006||\n" +
@@ -138,10 +148,11 @@ public class TorkelsSadisticPriestRestrictions
                             "                        this.getNumber()==10022||\n" +
                             "                        this.getNumber()==1033||\n" +
                             "                        this.getNumber()==10088||\n" +
-                            "                        this.getNumber()==1025||\n" +
+
                             "                        this.getNumber()==10064||\n" +
                             "                        this.getNumber()==10089||\n" +
                             "                        this.getNumber()==10090\n" +
+                            "                        this.getNumber()==10047||\n" +
                             "                            ) {\n" +
                             "            communicator.sendSafeServerMessage(\"The Magic that flows through your body now, makes it unwilling to use most battle weapons. You will gain no experience in \" + this.getName() + \".\");"+
                             "                return;\n" +
@@ -161,11 +172,18 @@ public class TorkelsSadisticPriestRestrictions
                             "                        this.getNumber()==10020||\n" +
                             "                        this.getNumber()==10021||\n" +
                             "                        this.getNumber()==10022||\n" +
+                            "                        this.getNumber()==1033||\n" +
+                            "                        this.getNumber()==10088||\n" +
                             "                        this.getNumber()==10023||\n" +
                             "                        this.getNumber()==1025||\n" +
                             "                        this.getNumber()==10064||\n" +
                             "                        this.getNumber()==10089||\n" +
                             "                        this.getNumber()==10090\n" +
+                             "                        this.getNumber()==10070||\n" +
+                            "                        this.getNumber()==1027||\n" +
+                            "                        this.getNumber()==10058\n" +
+                            "                        this.getNumber()==10028\n" +
+                            "                        this.getNumber()==10047\n" +
                             "                            ) {\n" +
                             "            communicator.sendSafeServerMessage(\"The Magic that flows through your body now, makes it unwilling to use most battle weapons. You will gain no experience in \" + this.getName() + \".\");"+
                             "                return;\n" +
@@ -198,6 +216,10 @@ public class TorkelsSadisticPriestRestrictions
                             "                        this.getNumber()==10064||\n" +
                             "                        this.getNumber()==10089||\n" +
                             "                        this.getNumber()==10090\n" +
+                            "                        this.getNumber()==10070||\n" +
+                            "                        this.getNumber()==1027||\n" +
+
+                            "                        this.getNumber()==10028\n" +
                             "                            ) {\n" +
                             "            communicator.sendSafeServerMessage(\"The Magic that flows through your body now, makes it unwilling to use most battle weapons. You will gain no experience in \" + this.getName() + \".\");"+
                             "                return;\n" +
