@@ -1,6 +1,7 @@
 package org.arathok.wurmunlimited.mods.torkelsSadisticPriestRestrictions;
 
 import com.wurmonline.server.creatures.Communicator;
+import com.wurmonline.server.creatures.Creature;
 import javassist.CannotCompileException;
 import javassist.ClassPool;
 import javassist.CtClass;
@@ -30,6 +31,7 @@ public class TorkelsSadisticPriestRestrictions
 
         logger.log(Level.INFO,"Injecting Skill gain stop for priests.");
         try {
+            Creature test;
 
             ClassPool classPool = HookManager.getInstance().getClassPool();
             CtClass ctSkill;
@@ -39,14 +41,21 @@ public class TorkelsSadisticPriestRestrictions
                     .insertBefore(
                             "com.wurmonline.server.players.Player p = null;\n" +
                             "        p = com.wurmonline.server.Players.getInstance().getPlayerOrNull(parent.getId());\n"+
-                            "        com.wurmonline.server.items.Item equippedItem=p.getEquippedItem((byte)38);\n"+
-                            "        com.wurmonline.server.items.ItemTemplate equippedTemplate=equippedItem.getTemplate();\n"+
+                            "        com.wurmonline.server.items.Item equippedItem=null;\n"+
+                            "        com.wurmonline.server.items.ItemTemplate equippedTemplate=null;\n"+
+                            "        if (p!=null)\n"+
+                            "        {\n"+
+                            "        equippedItem=p.getEquippedItem((byte)38);\n"+
+                            "        equippedTemplate=equippedItem.getTemplate();\n"+
+                            "        }\n   "+
+
 
                             "        if (p!=null&&p.getPower()<2&&equippedTemplate != null) {\n" +
                             "           com.wurmonline.server.creatures.Communicator communicator = p.getCommunicator();\n" +
                             "            //TorkelsSadisticPriestRestrictions.logger.log(Level.SEVERE, \"Playernotfound!\");\n" +
                             "            if (p.isPriest()&&p.getDeity().getNumber()==1&&this.getKnowledge()>=1.01D)\n" +
                             "              { if(\n" +
+
                             "                        this.getNumber()==1030||\n" +
                             "                        this.getNumber()==10080||\n" +
                             "                        this.getNumber()==10079||\n" +
@@ -207,7 +216,7 @@ public class TorkelsSadisticPriestRestrictions
                             "                        this.getNumber()==1025||\n" +
                             "                        this.getNumber()==10064||\n" +
                             "                        this.getNumber()==10089||\n" +
-                            "                        this.getNumber()==10090\n" +
+                            "                        this.getNumber()==10090||\n" +
                             "                        this.getNumber()==10070||\n" +
                             "                        this.getNumber()==1027||\n" +
 
@@ -267,6 +276,8 @@ public class TorkelsSadisticPriestRestrictions
             e.printStackTrace();
 
 
+        } catch (Exception e) {
+            e.printStackTrace();
         }
 
         logger.log(Level.INFO,"Injecting Skill reset for priests.");
